@@ -1,0 +1,35 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+
+#defaults settings - OS independent, will be merged with and overridden by OS specific settings
+defaults:
+  pkgs:
+    - rsync
+  service:
+    name: rsyncd
+    state: dead
+    enable: False
+  conffile: '/etc/rsyncd.conf'
+  defaultsfile: 'rsyncd'
+
+  config:
+    conf:
+      'without_section_pre': 
+        '# uid': 'nobody'
+        '# gid': 'nobody'
+        '# use chroot': 'yes'
+        '# max connections': '4'
+        '# pid file': '/var/run/rsyncd.pid'
+        '# exclude': 'lost+found/'
+        '# transfer logging': 'yes'
+        '# timeout': '900'
+        '# ignore nonreadable': 'yes'
+        '# dont compress': '*.gz *.tgz *.zip *.z *.Z *.rpm *.deb *.bz2'
+
+      '# [ftp]':
+        '# path': '/home/ftp'
+        '# comment': 'ftp export area'
+  defaults:
+    conf:
+      'without_section_pre':
+        OPTIONS: '"" '
