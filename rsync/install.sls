@@ -5,4 +5,4 @@
 
 rsync_install__pkg:
   pkg.installed:
-    - pkgs: {{ rsync.pkgs }}
+    - pkgs: {{ rsync.pkgs | tojson }}
